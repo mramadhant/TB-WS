@@ -1,0 +1,24 @@
+<ion-view view-title="Input Data Mahasiswa">
+  <ion-content class="padding">
+    <div class="list">
+		<label class="item item-input item-stacked-label">
+			 <span class="input-label">Nama Mahasiswa</span>
+			<input type="text" ng-model="bukuTamu.nama" placeholder="Masukkan Nama Mahasiswa">
+		</label>
+
+		<label class="item item-input item-stacked-label">
+			<span class="input-label">Email</span>
+			<input type="text" ng-model="bukuTamu.email" placeholder="Masukkan Email Pengunjung">
+		</label>
+
+		<label class="item item-input item-stacked-label">
+			<span class="input-label">Alamat</span>
+			<input type="text" placeholder="Masukkan Alamat Pengunjung" ng-model="bukuTamu.alamat">
+		</label>
+
+		<button class="button button-positive button-block" ng-click="simpan(bukuTamu);">
+			Save
+        </button>
+	</div>
+  </ion-content>
+</ion-view>
