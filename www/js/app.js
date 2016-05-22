@@ -40,21 +40,21 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
   // Each tab has its own nav history stack:
 
-  .state('tab.home', {
-    url: '/home',
+  .state('tab.dash', {
+    url: '/dash',
     views: {
       'tab-dash': {
-        templateUrl: 'templates/home.html',
+        templateUrl: 'templates/tab-dash.html',
         controller: 'DashCtrl'
       }
     }
   })
 
-  .state('tab.datamahasiswa', {
-      url: '/mahasiswa',
+  .state('tab.chats', {
+      url: '/chats',
       views: {
         'tab-chats': {
-          templateUrl: 'templates/datamahasiswa.html',
+          templateUrl: 'templates/tab-chats.html',
           controller: 'ChatsCtrl'
         }
       }
@@ -69,6 +69,26 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     })
 
+  .state('tab.mahasiswa', {
+      url: '/mahasiswa',
+      views: {
+        'tab-mahasiswa': {
+          templateUrl: 'templates/tab-mahasiswa.html',
+          controller: 'MahasiswaCtrl'
+        }
+      }
+    })
+  
+  .state('tab.mahasiswa-detail', {
+      url: '/mahasiswa/:mahasiswaNpm',
+      views: {
+        'tab-mahasiswa': {
+          templateUrl: 'templates/detailmahasiswa.html',
+          controller: 'MahasiswaDetailCtrl'
+        }
+      }
+    })
+  
   .state('tab.account', {
     url: '/account',
     views: {

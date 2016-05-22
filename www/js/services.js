@@ -1,21 +1,63 @@
 angular.module('starter.services', [])
 
+.factory('mahasiswaService', function($http) {
+    var baseUrl = 'http://localhost/ws/';
+    return {
+        getAll: function() {
+            return $http.get(baseUrl+'select.php');
+        },
+         getId: function (mahasiswaNpm){
+            return $http.get(baseUrl+'select_id.php?npm='+mahasiswaNpm); 
+        },
+        create: function (datamhs){
+            return $http.post(baseUrl+'insert.php',datamhs,{
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8;'
+                }
+            });
+        },
+        update: function (datamhs){
+            return $http.post(baseUrl+'update.php',datamhs,{
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8;'
+                }
+            });
+        },
+        delete: function  (npm){
+        return $http.get(baseUrl+'delete.php?npm='+npm);
+         }  
+    };
+})
+
 .factory('Chats', function() {
   // Might use a resource here that returns a JSON array
 
   // Some fake testing data
   var chats = [{
     id: 0,
-    name: 'Andi',
+    name: 'Ben Sparrow',
+    lastText: 'You on your way?',
     face: 'img/ben.png'
   }, {
     id: 1,
-    name: 'Bambang',
+    name: 'Max Lynx',
+    lastText: 'Hey, it\'s me',
     face: 'img/max.png'
   }, {
     id: 2,
-    name: 'Joko',
+    name: 'Adam Bradleyson',
+    lastText: 'I should buy a boat',
     face: 'img/adam.jpg'
+  }, {
+    id: 3,
+    name: 'Perry Governor',
+    lastText: 'Look at my mukluks!',
+    face: 'img/perry.png'
+  }, {
+    id: 4,
+    name: 'Mike Harrington',
+    lastText: 'This is wicked good ice cream.',
+    face: 'img/mike.png'
   }];
 
   return {

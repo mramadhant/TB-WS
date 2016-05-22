@@ -1,0 +1,54 @@
+<ion-header-bar class="bar-positive">
+        <button class="button button-icon icon ion-ios-arrow-left" ng-click="back();">Back</button>
+        <h1 class="title">Tambah Mahasiswa</h1>
+</ion-header-bar>
+<ion-content class="padding" ng-repeat="datamhs in datamhs">
+    <h3>Detail :</h3>
+    <p>
+        <font size="2" color="gray" >NPM : {{datamhs.npm}}</font>
+    <br>
+        <font size="2" color="gray" >Nama : {{datamhs.nama_mhs}}</font>
+    <br>
+        <font size="2" color="gray" >Alamat : {{datamhs.alamat_mhs}}</font>
+    <br>
+        <font size="2" color="gray" >Jurusan : {{datamhs.id_jurusan}}</font>
+    </p>
+    <button class="button button-balanced button-block" ng-click="editModal()">Edit Friend</button>
+</ion-content>
+<script id="edit.html" type="text/ng-template">
+        <div class="modal">
+            <ion-header-bar class="bar-stable">
+                <button class="button button-icon icon ion-ios-close-outline" ng-click="batal()"></button>
+                <h1 class="title"> Edit Mahasiwas</h1>
+            </ion-header-bar>
+            <ion-content ng-repeat="datamhs in datamhs">
+                <form>
+                    <div class="list">
+                         <label class="item item-input">
+                        <span class="input-label">NPM :</span>
+                            <input type="hidden" placeholder="{{datamhs.npm}}" ng-model="datamhs.npm" value="{{datamhs.npm}}" init-from-form>
+                            <p>{{datamhs.npm}}</p>
+                        </label>
+                        
+                        <label class="item item-input">
+                        <span class="input-label">Nama :</span>
+                            <input type="text" placeholder="{{datamhs.nama_mhs}}" ng-model="datamhs.nama_mhs" value="{{datamhs.nama_mhs}}" init-from-form>
+                        </label>
+                        
+                        <label class="item item-input">
+                        <span class="input-label">Alamat :</span>
+                            <input type="text" placeholder="{{datamhs.alamat_mhs}}" ng-model="datamhs.alamat_mhs" value="{{datamhs.alamat_mhs}}" init-from-form>
+                        </label>
+                        
+                        <label class="item item-input">
+                        <span class="input-label">Jurusan :</span>
+                            <input type="text" placeholder="{{datamhs.id_jurusan}}" ng-model="datamhs.id_jurusan" value="{{datamhs.id_jurusan}}" init-from-form>
+                        </label>
+                        <button class="button button-positive button-block" ng-click="edit(nama_mhs,alamat_mhs,id_jurusan);">
+                            Save
+                        </button>
+                    </div>
+                </form>
+        </ion-content>
+        </div>
+</script>

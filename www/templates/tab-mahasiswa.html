@@ -1,0 +1,58 @@
+
+<ion-header-bar class="bar-positive">
+        <button class="button button-icon ion-ios-minus-outline" ng-click="data.showDelete = !data.showDelete"></button>
+        <h1 class="title">Mahasiswa</h1>
+        <button class="button button-icon ion-ios-plus-outline" ng-click="tambahModal()"></button>
+</ion-header-bar>
+
+<ion-view>
+    <div class="bar bar-subheader item-input-inset bar-light">
+        <label class="item-input-wrapper">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input type="search" ng-model="query" placeholder="Cari">
+        </label>
+    </div>
+    
+  <ion-content class="padding has-subheader">
+        <ion-refresher pulling-text="Pull to refresh..." on-refresh="showData()">
+        </ion-refresher>
+        
+        <ion-list show-Delete = "data.showDelete" show-Reorder = "data.showReorder">
+        <ion-item ng-repeat='datamhs in mahasiswas | filter: query' type="item-text-wrap" href="#/tab/mahasiswa/{{datamhs.npm}}">
+            <h2>{{datamhs.nama_mhs}}</h2>
+            <h3>{{datamhs.alamat_mhs}}</h3>
+            <h4>{{datamhs.id_jurusan}}</h4>
+        <ion-delete-button class="ion-minus-circled" ng-click="delete(datamhs);"></ion-delete-button>
+        </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
+
+<script id="tambah.html" type="text/ng-template">
+        <div class="modal">
+            <ion-header-bar class="bar-calm">
+                <button class="button button-icon icon ion-ios-close-outline" ng-click="batal()"></button>
+                <h1 class="title"> Tambah Mahasiswa</h1>
+            </ion-header-bar>
+            <ion-content class="padding has-header">
+                <form>
+                <ion-list >
+                    <label class="item item-input">
+                        <input type="text" ng-model="datamhs.npm" placeholder="NPM">
+                    </label>
+                    <label class="item item-input">
+                        <input type="text" ng-model="datamhs.nama_mhs" placeholder="Nama Mahasiswa">
+                    </label>
+                    <label class="item item-input">
+                        <input type="text" ng-model="datamhs.alamat_mhs" placeholder="Alamat">
+                    </label>
+                    <label class="item item-input">
+                        <input type="text" ng-model="datamhs.id_jurusan" placeholder="Jurusan">
+                    </label>
+                </ion-list>
+                <div class="spacer" style="height: 5px;"></div>
+                <button class="button icon ion-person-stalker button-balanced button-block" ng-click="simpan();"> Save</button>
+            </form>
+        </ion-content>
+        </div>
+</script>
